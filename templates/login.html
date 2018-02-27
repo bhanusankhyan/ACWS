@@ -1,0 +1,17 @@
+{% include "header.html" %}
+{% extends "main.html" %}
+{% block content %}
+
+<br>
+<br>
+<br>
+  <div style="text-align:center;">
+  <form method='POST'>
+
+    E-mail Address <input class='form-control' type='email' name='email' placeholder='Enter E-mail Address'><br><br>
+    Password       <input class='form-control' type='password' name='pass' placeholder='Password'><br><br><br>
+    <input type='submit' value='Login' class='btn btn-primary'>
+    <input type='reset' value='Reset' class='btn btn-primary'>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+
+
+.logo{
+  position:relative;
+  padding-top:20px;
+  z-index:2;
+
+}
+.navbar-static-top{
+  position:fixed;
+  width:100%;
+
+}
+
+
+.nav li a{
+  color:#42A5F5;
+}
+
+.container-fluid{
+  background-color:#ccc;
+}
+
+
+
+.new a{
+  color:red;
+}
+
+.container{
+  margin-top:100px;
+}
+.navbar{
+  padding:0;
+}

@@ -1,0 +1,16 @@
+{% include "header.html" %}
+{% extends "main.html" %}
+{% block content %}
+<br>
+<br>
+<br>
+  <div style='text-align:center'>
+  <form method='post' action=''>
+  E-mail  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input class='form-control' type='email' name='email' placeholder='Enter your e-mail address'><br><br>
+  Password  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input class='form-control' type='password' name='pass' placeholder='Enter Passwod' > <br><br>
+  Confirm Password  <input class='form-control' type='password' name='repass' placeholder='Re-Enter Password'><br><br><br>
+  <input type='submit' class='btn btn-primary' value='Register'>
+  <input type='reset' class='btn btn-primary' value='Reset'>
+  </form>
+  <div>
+{% endblock %}
