@@ -9,28 +9,42 @@
 
 
 
-
     <h1 id = 'Services' >Services</h1>
     <br><br>
-    <div class='ScrollWindow form-check' style="border:1px solid black;width:500px;height:500px;overflow:scroll;">
-    <input class='checkbox-primary checkbox-info'  type='checkbox'>Air Filter <br>
-    <input type='checkbox'> Oil Filter<br>
-    <input type='checkbox'> Engine Oil<br>
-    <input type='checkbox'> Coolant<br>
-    <input type='checkbox'> Wiper Fluid<br>
-    <input type='checkbox'> Battery Water<br>
-    <input type='checkbox'> Spark PLugs<br>
-    <input type='checkbox'> Fuel Filter<br>
-    <input type='checkbox'> Brake Pads<br>
-    <input type='checkbox'> Brake Fluid<br>
-    <input type='checkbox'> Tyre Rotation<br>
-    <input type='checkbox'> Wheel Alignment<br>
-    <input type='checkbox'> Wheel Balancing<br>
-    </div>
-    <br>
     <div>
-      <input type="submit" value="Book">
+
+        <img id ='companies' src="static/maruti_suzuki.jpg" style="width:5%" data-toggle="modal" data-target='#myModal'>
+      </div>
+
+
+    <br>
+    <div id ="myModal" class="modal fade" role='dialog'>
+      <div class='modal-dialog'>
+      <div class="modal-content">
+        <div class=modal-header>
+        <button type='button' class="close" data-dismiss='modal'>&times;</button>
+      </div>
+        <div class='modal-body'>
+        <form>
+        <select id='carModels'>
+          <option value='Alto'>Alto</option>
+          <option value='Swift'>Swift</option>
+          <option value='Dzire'>Dzire</option>
+        </select>
+        <a href='#' id='process_input'><button type='button' class="btn btn-default"> Submit </button></a>
+      </form>
+      <br>
+      <br>
+      <p id='result'>...</p>
+
+      </div>
+      </div>
     </div>
+    </div>
+
+
+    <!-- Modal -->
+
 
     <br>
     <br id='Contact'>

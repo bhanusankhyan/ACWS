@@ -4,8 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from database_setup import Base, Register
 import json
-
-engine =  create_engine("postgresql+psycopg2://bhanu:bhanu@localhost/acws6")
+engine =  create_engine("postgresql+psycopg2://bhanu:bhanu@localhost/experiment6")
 Base.metadata.bind = engine
 DBsession = sessionmaker(bind=engine)
 session = DBsession()
@@ -75,7 +74,7 @@ def Login():
             user = session.query(Register).filter_by(email=request.form['email']).one()
             if user.email == request.form['email'] and user.password == request.form['pass']:
                 flash('You are now logged in')
-                login_session['email'] = user.email
+                login_session['username'] = user.email
                 return redirect('/')
             elif user.email != request.form['email']:
                 flash('User Does Not Exist! Register First Please')
@@ -86,11 +85,23 @@ def Login():
         except:
             flash('Invalid credentials! Please Register')
             return redirect('/register')
+@app.route('/backgroud_process')
+def backgroundProcess():
+    try:
+        model = request.args.get('carModel')
+        return jsonify(result = 'Hell')
+    except Exception(e):
+        return(str(e))
+
 
 @app.route('/logout')
 def logout():
-    login_session.pop('email', None)
+    del login_session['username']
+    flash('You are now logged out')
     return redirect('/')
+@app.route('/profile')
+def UserProfile():
+    return render_template('profile.html')
 
 
 if __name__ =='__main__':

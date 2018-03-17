@@ -33,3 +33,30 @@
 .navbar{
   padding:0;
 }
+#companies:hover{
+  opacity:0.7;
+}
+.modal{
+
+  background-color:rgba(0,0,0,,0.5);
+}
+
+.modal-body{
+    /*background-color:red;*/
+    margin:20% auto;
+    padding:20px;
+    width:70%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px rgba(0,0,0,0.17);
+}
+
+.closeBtn{
+    color:#ccc;
+    float:right;
+    font-size:30px;
+}
+
+.close:hover,.close:focus{
+    color:#000;
+    text-decoration:none;
+    cursor:pointer;
+  }
