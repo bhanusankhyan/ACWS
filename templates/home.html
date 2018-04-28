@@ -8,61 +8,268 @@
 
 
 
-
+<div class="bg1">
+    <br><br>  <br><br>  <br><br>  <br><br>
     <h1 id = 'Services' >Services</h1>
     <br><br>
-    <div>
-
-        <img id ='companies' src="static/maruti_suzuki.jpg" style="width:5%" data-toggle="modal" data-target='#myModal'>
-      </div>
 
 
-    <br>
+      <center>
+
+      <div id="carousel">
+      <img src="{{url_for('static',filename = 'tata.jpg')}}" id="img" onclick="company(this.alt)" alt="Tata" data-toggle="modal" data-target='#myModal' >
+      <img src="{{url_for('static',filename = 'ford.jpg')}}" id="img" onclick="company(this.alt)" alt="Ford" data-toggle="modal" data-target='#myModal'>
+      <img src="{{url_for('static',filename = 'hyundai.jpg')}}" id="img" onclick="company(this.alt)" alt="Hyundai" data-toggle="modal" data-target='#myModal' >
+      <img src="{{url_for('static',filename = 'mahindra.jpg')}}" id="img" onclick="company(this.alt)" alt="Mahindra" data-toggle="modal" data-target='#myModal' >
+      <img src="{{url_for('static',filename = 'volkswagon.jpg')}}" id="img" onclick="company(this.alt)" alt="Volkswagen" data-toggle="modal" data-target='#myModal'class="active">
+      <img src="{{url_for('static',filename = 'maruti_suzuki.jpg')}}" onclick="company(this.alt)" alt="Maruti Suzuki"id="img" data-toggle="modal" data-target='#myModal'>
+      <img src="{{url_for('static',filename = 'honda.jpg')}}" id="img" onclick="company(this.alt)" alt="Honda" data-toggle="modal" data-target='#myModal'>
+      <img src="{{url_for('static',filename = 'renault.jpg')}}" id="img" onclick="company(this.alt)" alt="Renault" data-toggle="modal" data-target='#myModal'>
+      <a href-'#' id = 'prev' class="prev round"></a>
+      <a href='#' class="next round" id="next"></a>
+    </div>
+
+       <!--<a href="#" id="prev">Prev</a> | <a href="#" id="next">Next</a>-->
+</center>
+</div>
+<script type="text/javascript">
+  function company(company){
+    $('#carModels').children('option').remove();
+    var carmodel = $('#carModels');
+    carmodel.innerHTML = "";
+    if (company == "Maruti Suzuki"){
+      var optionArray = ["Alto 800","Alto K10","Omni","Gypsy","WagonR","Eeco","Celerio","Ritz","Swift","Swift Dzire","Ertiga","SX4","Ciaz"];
+      copany="";
+    }
+    else if(company == 'Tata'){
+      var optionArray = ["Nano","Tiago","Tigor","Bolt","Indica","Zest","Nexon","Sumo Gold","Safari","Hexa"];
+      company = "";
+    }
+    else if (company == "Ford"){
+      var optionArray = ["EcoSport","Figo","Endeavour","Mustang","Aspire","Freestyle"];
+      company = "";
+    }
+    else if (company == "Volkswagen"){
+      optionArray = ["Polo","Ameo","Vento","GTI","Tiguan","Taigun","T-Cross"];
+      company = "";
+    }
+    else if(company == "Hyundai"){
+      var optionArray = ["Elite i20","Verna","Creta","Grand i10","Eon","Accent","i20 Active","Elantra","Tucson"];
+      company = "";
+    }
+    else if (company == "Mahindra"){
+      var optionArray = ["TUV 300","Thar","XUV 500","Scorpio","KUV100 NXT","Bolero","Xylo","Verito","G4 Rexton","NuvoSport"];
+      company = "";
+    }
+    else if(company == "Honda"){
+      var optionArray = ["Amaze","Jazz","City","WR-V","BR-V","Brio","CR-V","Accord"];
+      company = "";
+    }
+    else if (company == "Renault"){
+      var optionArray = ["Kwid","Captur","Duster","Lodgy"];
+      company = "";
+    }
+    for (var option in optionArray){
+      var option1 = new Option(optionArray[option],optionArray[option]);
+      $('#carModels').append($(option1));
+
+    }
+
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
     <div id ="myModal" class="modal fade" role='dialog'>
       <div class='modal-dialog'>
       <div class="modal-content">
         <div class=modal-header>
         <button type='button' class="close" data-dismiss='modal'>&times;</button>
       </div>
-        <div class='modal-body'>
-        <form>
-        <select id='carModels'>
-          <option value='Alto'>Alto</option>
-          <option value='Swift'>Swift</option>
-          <option value='Dzire'>Dzire</option>
-        </select>
-        <a href='#' id='process_input'><button type='button' class="btn btn-default"> Submit </button></a>
-      </form>
-      <br>
-      <br>
-      <p id='result'>...</p>
+        <div class='modal-body' style="overflow:auto;">
+        <form id="modform">
+        <!--Car Model : <input type="text" name = "carModel" id = "carModels"> -->
+        Car Model : <select id="carModels" name="carModel">
 
+        </select>
+        <button id="process_input" type='button' class="btn btn-default"> Submit </button>
+      </form>
+      <i>Car Model</i> : <i id="result">....</i>
+      <table style="width:100%;">
+        <tr>
+          <th></th>
+         <th><p>Basic</p><i id="basic"></i></th>
+         <th><p>Standard</p><i id="standard"></i></th>
+         <th><p>Comprehensive</p><i id =comprehensive></i></th>
+        </tr>
+        <tr>
+          <td>Air Filter</td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Oil Filter</td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Engine Oil</td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Coolant</td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Wiper Fluid</td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Battery Water</td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Spark Plugs</td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Fuel Filter</td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Brake Pads</td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Brake Fluid</td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Car Washing</td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Tyre Rotation</td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Cabin/AC Filter</td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Wheel Alignment</td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Wheel Balancing</td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+        <tr>
+          <td>Gear Oil</td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" disabled></td>
+          <td><input type="checkbox" value="TRUE" checked="checked"disabled></td>
+        </tr>
+      </table>
       </div>
+      <div class="modal-footer">
+        <form action='{{url_for('scheduleService')}}' method ="POST" >
+          <div style="align:left;">
+          <h5 style="display:inline;"><i><b>Service Type :</b></i></h5>
+          <div  style="display:inline">
+          Basic: <input type='radio' name='service' checked="checked" value="basic">
+          Standard: <input type='radio' name='service' value="standard">
+          Comprehensive: <input type='radio' name='service' value="comprehensive">
+        </div>
       </div>
-    </div>
-    </div>
+
+
+
+
+
+            <h5 style="float:left; dispay:inline;"><i><b>Schedule Booking Date & Time :</b></i></h5>
+              <div class='col-sm-6'>
+                  <div class="form-group">
+                      <div class='input-group date' id='datetimepicker1'>
+                          <input type='text' class="form-control" name="s_date">
+                          <span class="input-group-addon">
+                              <span class="glyphicon glyphicon-calendar"></span>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+              <button type="submit">Schedule A Service!</button>
+
+            </form>
+              <script type="text/javascript">
+                  $(function () {
+                      $('#datetimepicker1').datetimepicker({
+                        format : 'MM/DD/YYYY HH:mm'
+                      });
+                  });
+              </script>
+
+  </div>
+            </div>
+          </div>
+     </div>
+
+
+
 
 
     <!-- Modal -->
 
 
-    <br>
+    <div style="color: #777;background-color:white;text-align:center;padding:10px 80px;text-align:justify;height:300px;">
     <br id='Contact'>
-    <br >
-    <br>
-    <br>
-    <h1 >Contact Us</h1>
-    <br>
-    <br>
-    <br>
+    <center><h1 >Contact Us</h1>
+
+
+<div>
     <div style="width:50%;float:left; display:inline;">
      <h3>Bhanu Sankhyan</h3>
-      Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:     bhanusankhyan@live.com<br>
+      Email:     bhanusankhyan@live.com<br>
       Phone No. :  +91-9793109509
     </div>
-    <div style="width:50%; display:inline;">
+    <div style="width:50%; display:inline; float:right;">
      <h3> Divyank Vijayvergiya </h3>
-     Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  divyankvijay@gmail.com<br>
+     Email :  divyankvijay@gmail.com<br>
      Phone No.  : +91-8209511057
     </div>
     <br>
@@ -70,16 +277,21 @@
     <br>
     <div style='width:50%; float:left; display:inline;'>
       <h3>Archit Sharma</h3>
-      Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : sharmaarchit4488@gmail.com<br>
+      Email : sharmaarchit4488@gmail.com<br>
       Phone No. : +91-8219745310
     </div>
-    <div style="width:50%; display:inline;">
+    <div style="width:50%; display:inline;float:right;">
       <h3>Divyam Dhadwal</h3>
-      Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : divyamdhadwal@gmai.com<br>
+      Email: divyamdhadwal@gmai.com<br>
       Phone No. : +91-8171633012
     </div>
+</div>
+</center>
+</div>
+<hr>
+<div style="color: #777;background-color:white;text-align:center;padding:10px 80px;text-align:center;height:300px;">
+<br id='Contact'>
 
-    <br>
     <br id='About'>
     <br>
     <br>
@@ -101,11 +313,11 @@
       <h4>iOS Application is developed by </h4><h3>Archit Sharma</h3>
       <br>
       <br>
-      <h4>This project was developed under guidance of </h4><h3>Mr. Naresh Sharma</h3>
+      <h4>This project was developed under guidance of </h4><h3>Mr. R. Manikandan</h3>
       <br><br>
       <br>
       <br>
       <br>
       <br>
-
+</div>
 {% endblock %}

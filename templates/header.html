@@ -1,4 +1,4 @@
-<nav class='navbar navbar-fixed-top'>
+<nav class='navbar navbar-fixed-top navbar-dark bg-dark'>
   <div class='container-fluid'>
     <div class='navbar-header'>
       <a class='navbar-brand' href="{{url_for('HomePage')}}">ACWS</a>
@@ -8,15 +8,20 @@
     <li><a href='#Contact'>Contact Us</a></li>
     <li><a href='#About'>About Us</a></li>
     </ul>
-    {% if 'username' not in session %}
+    {% if 'workshop' in session %}
     <ul class='nav navbar-right'>
-    <li><a href="{{url_for('Login')}}"><span class="glyphicon glyphicon-log-in">Login</a></li>
-    <li><a href="{{url_for('RegisterSuccess')}}"><span class="glyphicon glyphicon-user">Register</a></li>
+    <li><a href="#">{{session['workshop']}}</a></li>
+    <li><a href="{{url_for('workshopLogout')}}">Logout</a></li>
     </ul>
-    {% else %}
+    {% elif 'username' in session %}
     <ul class = 'nav navbar-right'>
       <li><a href="{{url_for('UserProfile')}}">{{session['username']}}</a></li>
       <li><a href="{{url_for('logout')}}">Logout</a></li>
+    </ul>
+    {% else %}
+    <ul class='nav navbar-right'>
+    <li><a href="{{url_for('Login')}}"><span class="glyphicon glyphicon-log-in">Login</a></li>
+    <li><a href="{{url_for('RegisterSuccess')}}"><span class="glyphicon glyphicon-user">Register</a></li>
     </ul>
     {%endif%}
     </div>
@@ -24,7 +29,7 @@
   </nav>
 
 
-<div style='margin-top:100px;'class='flash alert-info'>
+<div style="margin-top:100px;heigth:30px;"class='flash alert-purple'>
   {% with messages = get_flashed_messages() %}
   {% if messages %}
   <ul>

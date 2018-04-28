@@ -17,9 +17,7 @@
   color:#42A5F5;
 }
 
-.container-fluid{
-  background-color:#ccc;
-}
+
 
 
 
@@ -59,4 +57,179 @@
     color:#000;
     text-decoration:none;
     cursor:pointer;
+  }
+  .bg{
+    background-repeat: no-repeat;
+    background-size:cover;
+    width:100%;
+    height:100vh;
+  }
+  .form-container{
+    border:1px solid #fff;
+    padding: 50px 60px;
+    margin-top:10vh;
+    -webkit-box-shadow: 6px 7px 25px 23px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 7px 25px 23px rgba(0,0,0,0.75);
+    box-shadow: 6px 7px 25px 23px rgba(0,0,0,0.75);
+  }
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.ui-autocomplete-input {
+  border: none;
+  font-size: 14px;
+  width: 300px;
+  height: 24px;
+  margin-bottom: 5px;
+  padding-top: 2px;
+  border: 1px solid #DDD !important;
+  padding-top: 0px !important;
+  z-index: 1511;
+  position: relative;
+}
+.ui-menu .ui-menu-item a {
+  font-size: 12px;
+}
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1510 !important;
+  float: left;
+  display: none;
+  min-width: 160px;
+  width: 160px;
+  padding: 4px 0;
+  margin: 2px 0 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+}
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.ui-state-hover, .ui-state-active {
+      color: #ffffff;
+      text-decoration: none;
+}
+
+body {
+        font-family:Arial;
+        font-size:12px;
+      }
+      .example-desc {
+        margin:3px 0;
+        padding:5px;
+      }
+      #carousel {
+        width:960px;
+
+        height:300px;
+        clear:both;
+        overflow:hidden;
+
+      }
+      #carousel img {
+        visibility:hidden; /* hide images until carousel can handle them */
+        cursor:pointer; /* otherwise it's not as obvious items can be clicked */
+      }
+      .split-left {
+        width:450px;
+        float:left;
+      }
+      .split-right {
+        width:400px;
+        float:left;
+        margin-left:10px;
+      }
+      #callback-output {
+        height:250px;
+        overflow:scroll;
+      }
+      textarea#newoptions {
+        width:430px;
+      }
+
+
+
+      .next::after, .prev::after{
+        content:">";
+        position:absolute;
+        top: 45%;
+        right:0;
+        color:black;
+        border-radius:50%;
+        background-color:#5c8a8a;
+        width:3em;
+        height:3em;
+        font-weight:bold;
+        font-family:sans-serif;
+        box-sizing:border-box;
+        padding:0.8em 1.2em;
+        cursor:pointer;
+        opacity:0.5;
+      }
+      .next:hover::after,.prev:hover::after{
+        opacity:1;
+      }
+      .prev:after{
+        content:"<";
+        left:0;
+      }
+      .buttons{
+       background-color:black;
+       width:4.5%;
+       height:300px;
+       margin-top:-40px;
+
+      }
+      .buttons::after{
+       background-color:black;
+       width:4.5%;
+       height:300px;
+       margin-top:-40px;
+
+      }
+    .bg1{
+      background-image:url("background.jpg");
+      height:100%;
+      background-position:center;
+      background-repeat:no-repeat;
+      background-size:100% 100%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      margin-top:-101px;
+
+    }
+  .flash{
+    z-index:1;
+  }
+  .alert-purple{
+     border-color: #694D9F;
+     background: #694D9F;
+     color: #fff;
   }

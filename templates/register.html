@@ -4,13 +4,39 @@
 <br>
 <br>
 <br>
-  <div style='text-align:center'>
-  <form method='post' action=''>
-  E-mail  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input class='form-control' type='email' name='email' placeholder='Enter your e-mail address'><br><br>
-  Password  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input class='form-control' type='password' name='pass' placeholder='Enter Passwod' > <br><br>
-  Confirm Password  <input class='form-control' type='password' name='repass' placeholder='Re-Enter Password'><br><br><br>
-  <input type='submit' class='btn btn-primary' value='Register'>
-  <input type='reset' class='btn btn-primary' value='Reset'>
+  <body class = 'bg' background='static/3.jpg'>
+  <div style='container-fluid'>
+    <div class='row'>
+      <div style="margin:auto;" class='col-md-3 col-sm-4 col-xs-12'>
+        <center>
+  <form class='form-container'method='post' action=''>
+
+<div class="form-group">
+  <label for="exampleInputEmail1">Email address</label>
+  <input type="email" class="form-control" name='email' placeholder="exapmle@abc.com">
+</div>
+<div class="form-group">
+  <label for="exampleInputPassword1">Password</label>
+  <input type="password" class="form-control" name='pass' placeholder="Password">
+</div>
+<div class="form-group">
+  <label for="confirmPassword">Confirm Password</label>
+  <input type="password" class="form-control" name='repass' placeholder="Re-Enter Password">
+</div>
+<div class="form-group">
+  <label for="Name">Name</label>
+  <input type="text" class="form-control" name='name' placeholder="Enter your Name">
+</div>
+<div class="form-group">
+  <label for="PhoneNumber">Phone Number</label>
+  <input type="integer" class="form-control" name='phone' placeholder="Phone Number">
+</div>
+<button type="submit" class="btn btn-success btn-blog">Submit</button>
   </form>
-  <div>
+  </center>
+</div>
+</div>
+</div>
+</body>
+
 {% endblock %}

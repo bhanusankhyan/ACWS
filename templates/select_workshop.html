@@ -1,0 +1,97 @@
+{% include "header.html" %}
+{% extends "main.html" %}
+{% block content %}
+<h3> Select Workshop in which you want to Service your {{name}} on {{date}}</h3>
+
+
+<form id="distance"method='post' action=''>
+<select id="workshop">
+  <option value="null">__Select__</option>
+
+  {%for value in workshops%}
+  <option value="{{value.name}}" id="{{value.name}}">{{value.name}}</option>
+  {%endfor%}
+</select>
+<button id='submit' class="btn btn-default" type="button">Submit</button>
+</form>
+
+
+<div id="map" style="height:50%;width:100%;">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRFFay7hIBfZ0XBhyvwtXg2Chhoxn62Nk&callback=initMap" type="text/javascript"></script>
+<h2 id='result1'></h2>
+<script type="text/javascript">
+
+ function initMap(){
+     if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showMap);
+
+    } else {
+        $('#result1').innerHTML = "Geolocation is not supported by this browser.";}
+function showMap(position){
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    var location = {lat:lat, lng:lng};
+    var map  = new google.maps.Map(document.getElementById("map"),{
+     zoom:14,
+     center:location,
+ });
+ var marker = new google.maps.Marker({
+     position: ({lat:lat, lng:lng}),
+     map: map,
+     title:"You are here!",
+
+ });
+
+}
+}
+$('#submit').on('click',function(){
+var workshop = $('#workshop').val();
+if (workshop == "Baba Moters"){
+  var origin = new google.maps.LatLng(28.6917,77.3410);
+var destination = new google.maps.LatLng(28.6478,77.1937)
+var service = new google.maps.DistanceMatrixService();
+service.getDistanceMatrix({
+origins : [origin],
+destinations : [destination],
+travelMode : 'DRIVING',
+}, callback);
+function callback(response,status){
+ if (status == 'OK'){
+   var element = response.rows[0].elements[0].distance.value;
+   element = element/1000;
+$('#result1').text("Distance of "+workshop+" from your Current Location is "+element+"Km");}
+else{
+$('#result1').text("error");}
+
+
+}
+}
+else if(workshop == 'bhanu'){
+  var origin = new google.maps.LatLng(28.6917,77.3410);
+var destination = new google.maps.LatLng(28.6663,77.2248)
+var service = new google.maps.DistanceMatrixService();
+service.getDistanceMatrix({
+origins : [origin],
+destinations : [destination],
+travelMode : 'DRIVING',
+}, callback);
+function callback(response,status){
+ if (status == 'OK'){
+   var element = response.rows[0].elements[0].distance.value;
+
+   $('#result1').text("Distance of "+workshop+" from your Current Location is "+element+"Km");
+ }
+
+else{
+$('#result1').text("error");}
+}
+}
+});
+
+
+
+</script>
+{%endblock%}

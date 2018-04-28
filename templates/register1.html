@@ -1,0 +1,22 @@
+{%include "header.html"%}
+{%include "main.html"%}
+{% block content %}
+<center>
+  <br>
+  <br>
+  <br>
+<h2>Register As</h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div style="display:inline; width:50%;padding:40px 50px;font-size:30px;border:1px solid;margin:10px;border-radius:20px;">
+  <a href="{{url_for('userRegister')}}"> As User</a>
+</div>
+<div style="display:inline;width:50%;padding:40px 40px;font-size:30px;border:1px solid;border-radius:20px;">
+<a href="{{url_for('workshopRegister')}}">As Workshop</a>
+</div>
+</center>
+{%endblock%}
