@@ -1,0 +1,4 @@
+*.html from models
+test.html
+index.py
+*.pyc
