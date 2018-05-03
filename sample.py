@@ -91,9 +91,12 @@ def RegisterAPI():
 
 @app.route('/login')
 def Login():
+    if login_session['username']== None and login_session['workshop'] == None:
         return render_template('login1.html')
         #user = session.query(Register).filter_by(email=request.form['email'],password = request.form['pass']).first()
-
+    else:
+        flash('Please logout first')
+        return redirect('/home')
 @app.route('/user_login',methods=['POST','GET'])
 def userLogin():
     if request.method == 'GET':
@@ -152,7 +155,8 @@ def backgroundProcess():
 
 @app.route('/schedule_service',methods=['POST'])
 def scheduleService():
-    #try:
+  try:
+     if login_session['username'] != None:
       carmodel = login_session['carmodel']
       service_type = request.form['service']
       date_time = request.form['s_date']
@@ -179,8 +183,12 @@ def scheduleService():
       #return redirect('/')
 
 
+
       workshops = session.query(Workshop).all()
       return render_template('select_workshop.html',name = booking.model, date = booking.booking_date, workshops = workshops)
+  except:
+         flash('Please login first to Schedule a Service!')
+         return redirect('/home')
     #except:
       # flash("Please login first To Schedule a Booking")
        #return redirect('/login')
