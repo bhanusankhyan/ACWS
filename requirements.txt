@@ -12,6 +12,6 @@ requests-unixsocket==0.1.5
 simplejson==3.8.1
 SQLAlchemy==1.0.11
 SQLAlchemy-Utils==0.33.0
-urllib3==1.13.1
+urllib3==1.26.5
 Werkzeug==0.10.4
 
